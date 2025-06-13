@@ -1,13 +1,17 @@
 # How to Run the Code
 This guide will help you set up and run the project locally.
 
-### Prerequisites
+## Prerequisites
 Ensure you have the following installed:
 - Node.js (version 14 or higher)
 - npm (Node Package Manager)
 - Docker (for containerized setup)
 
-### If you want to run the whole backend, frontend and db mysql in Docker containers: 
+## Create a `.env` file
+In the frontend directory, create an `.env` file and copy from the `.env.example` file.
+Do the same in the backend directory.
+
+## If you want to run the whole backend, frontend and db mysql in Docker containers: 
 1. uncomment the backend and frontend sections in the `docker-compose.yml`
 2. Run the following command in the root directory of the project:
 ``` bash
@@ -17,9 +21,9 @@ The build will take some time ~ 5 minutes because of migrations and seeding the 
 
 3. Open your web browser and navigate to`http://localhost:5173` for the frontend application.
 
-### If you want to run the backend and frontend separately without Docker:
+## If you want to run the backend and frontend separately without Docker:
 
-### Database Setup
+## Database Setup
 1. Navigate to the database directory (ensure commenting the backend and frontend sections in docker-compose.yml) and run the following command to start the MySQL container:
 ``` bash
 docker compose up -d
@@ -35,7 +39,7 @@ npm run seed
 ```
 This will take a little time 
 
-### Backend Setup
+## Backend Setup
 1. Navigate to the backend directory:
 ``` bash
 cd backend
@@ -49,7 +53,7 @@ npm install
 npm run start:dev
 ```
 
-### Frontend Setup
+## Frontend Setup
 1. Navigate to the frontend directory:
 ``` bash
 cd frontend
