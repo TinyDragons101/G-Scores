@@ -1,4 +1,14 @@
 services:
+  # migration:
+  #   build: ./backend
+  #   depends_on:
+  #     mysql:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ./backend:/app
+  #   environment:
+  #     - NODE_ENV=production
+  #   command: npm run migration:run
   # backend:
   #   build: ./backend
   #   container_name: nest-backend
@@ -9,6 +19,17 @@ services:
   #     - ./backend:/app
   #   depends_on:
   #     - mysql
+
+  # seeder:
+  #   build: ./backend
+  #   depends_on:
+  #     migration:
+  #       condition: service_completed_successfully
+  #   volumes:
+  #     - ./backend:/app
+  #   environment:
+  #     - NODE_ENV=production
+  #   command: npm run seed
 
   # frontend:
   #   build: ./frontend
@@ -32,6 +53,8 @@ services:
       MYSQL_PASSWORD: 123
     ports:
       - "3306:3306"
+    command: 
+      --local-infile=1
     volumes:
       - mysql_data:/var/lib/mysql
 

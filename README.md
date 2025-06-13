@@ -7,17 +7,13 @@ Ensure you have the following installed:
 - npm (Node Package Manager)
 - Docker (for containerized setup)
 
-### Create a `.env` file
-In the frontend directory, create an `.env` file and copy from the `.env.example` file.
-Do the same in the backend directory.
-
 ### If you want to run the whole backend, frontend and db mysql in Docker containers: 
 1. uncomment the backend and frontend sections in the `docker-compose.yml`
 2. Run the following command in the root directory of the project:
 ``` bash
 docker-compose up -d
 ```
-The build will take some time
+The build will take some time ~ 5 minutes because of migrations and seeding the database.
 
 3. Open your web browser and navigate to`http://localhost:5173` for the frontend application.
 
